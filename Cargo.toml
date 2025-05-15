@@ -1,0 +1,11 @@
+[package]
+name = "hexcat"
+version = "0.1.0"
+edition = "2024"
+description = "Prints the contents of a file as hexadecimal bytes"
+repository = "https://github.com/mattaroni/hexcat"
+license = "MIT"
+publish = false
+
+[dependencies]
+clap = { version = "4.5.38", features = ["derive"] }
