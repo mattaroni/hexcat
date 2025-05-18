@@ -1,7 +1,7 @@
 # Hexcat
 
 ![version](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Fmattaroni%2Fhexcat%2Frefs%2Fheads%2Fmain%2FCargo.toml&query=%24.package.version&label=version)
-![license](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Fmattaroni%2Fhexcat%2Frefs%2Fheads%2Fmain%2FCargo.toml&query=%24.package.license&label=version&color=blueviolet)
+![license](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Fmattaroni%2Fhexcat%2Frefs%2Fheads%2Fmain%2FCargo.toml&query=%24.package.license&label=license&color=blueviolet)
 
 Prints the contents of a file as hexadecimal bytes.
 
