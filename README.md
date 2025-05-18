@@ -12,11 +12,6 @@ Prints the contents of a file as hexadecimal bytes.
 > 
 > Use this code (and the associated binaries) at your own discretion.
 
-## Download
-
-You can download the binary from the [releases page](https://github.com/mattaroni/hexcat/releases)
-on GitHub.
-
 ## Build from source
 
 To build the binary from source, you will need the following tools:
