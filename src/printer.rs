@@ -1,0 +1,28 @@
+use std::{fs::File, io::{self, BufWriter, Read, Write}};
+
+const CHUNK_SIZE: usize = 27;
+
+pub fn print_as_hexadecimal(filename: String) -> io::Result<()> {
+    let file = File::open(filename)?;
+    let mut bytes = file.bytes();
+    let mut buffer = BufWriter::new(io::stdout());
+
+    loop {
+        let mut chunk = bytes.by_ref().take(CHUNK_SIZE);
+
+        let first = match chunk.next() {
+            Some(x) => x?,
+            None => break,
+        };
+
+        write!(buffer, "{first:02x}")?;
+
+        for byte in chunk {
+            write!(buffer, " {:02x}", byte?)?;
+        }
+
+        writeln!(buffer)?;
+    }
+
+    buffer.flush()
+}
