@@ -2,6 +2,7 @@
 name = "hexcat"
 version = "0.1.0"
 edition = "2024"
+rust-version = "1.96"
 description = "Prints the contents of a file as hexadecimal bytes"
 repository = "https://github.com/mattaroni/hexcat"
 license = "MIT"
