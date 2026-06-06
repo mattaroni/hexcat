@@ -47,7 +47,7 @@ fn print_to_hex(text: String) {
 
         // trims trailing whitespace
         hex_line.remove(hex_line.len() - 1);
-        
+
         if 23 < hex_line.len() {
             hex_line.insert(23, ' ');
         }
