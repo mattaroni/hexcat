@@ -5,12 +5,12 @@ mod printer;
 #[derive(Parser, Debug)]
 #[command(version, about)]
 struct Args {
-    /// Path of the file to read
-    file: String,
-
     /// Number of bytes to print for each line
     #[arg(short, long, default_value_t = 27)]
     width: usize,
+
+    /// Path of the file to read
+    file: String,
 }
 
 fn main() {
