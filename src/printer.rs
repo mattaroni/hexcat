@@ -13,10 +13,10 @@ pub fn print_as_hexadecimal(filename: String, width: usize) -> io::Result<()> {
             None => break,
         };
 
-        write!(buffer, "{first:02x}")?;
+        write!(buffer, "{first:02X}")?;
 
         for byte in chunk {
-            write!(buffer, " {:02x}", byte?)?;
+            write!(buffer, " {:02X}", byte?)?;
         }
 
         writeln!(buffer)?;
