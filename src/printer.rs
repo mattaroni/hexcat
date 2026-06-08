@@ -1,11 +1,11 @@
 use std::{
     fs::File,
-    io::{self, BufWriter, Read, Write},
+    io::{self, BufReader, BufWriter, Read, Write},
 };
 
 pub fn print_as_hexadecimal(filename: String, width: usize) -> io::Result<()> {
     let file = File::open(filename)?;
-    let mut bytes = file.bytes();
+    let mut bytes = BufReader::new(file).bytes();
     let mut buffer = BufWriter::new(io::stdout());
 
     loop {
