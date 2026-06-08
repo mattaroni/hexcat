@@ -1,4 +1,7 @@
-use std::{fs::File, io::{self, BufWriter, Read, Write}};
+use std::{
+    fs::File,
+    io::{self, BufWriter, Read, Write},
+};
 
 pub fn print_as_hexadecimal(filename: String, width: usize) -> io::Result<()> {
     let file = File::open(filename)?;
