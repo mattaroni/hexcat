@@ -1,3 +1,8 @@
+use std::{
+    fs::File,
+    io::{self, BufReader, BufWriter, Read, Write},
+};
+
 use clap::Parser;
 
 mod printer;
@@ -16,7 +21,32 @@ struct Args {
 fn main() {
     let args = Args::parse();
 
-    if let Err(e) = printer::print_as_hexadecimal(args.file, args.width) {
+    if let Err(e) = print_as_hexadecimal(args.file, args.width) {
         eprintln!("\x1b[91;1merror:\x1b[0m {}", e.kind());
     }
+}
+
+pub fn print_as_hexadecimal(filename: String, width: usize) -> io::Result<()> {
+    let file = File::open(filename)?;
+    let mut bytes = BufReader::new(file).bytes();
+    let mut buffer = BufWriter::new(io::stdout());
+
+    loop {
+        let mut chunk = bytes.by_ref().take(width);
+
+        let first = match chunk.next() {
+            Some(x) => x?,
+            None => break,
+        };
+
+        write!(buffer, "{first:02X}")?;
+
+        for byte in chunk {
+            write!(buffer, " {:02X}", byte?)?;
+        }
+
+        writeln!(buffer)?;
+    }
+
+    buffer.flush()
 }
