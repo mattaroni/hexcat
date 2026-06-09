@@ -5,8 +5,7 @@ use std::{
 
 use clap::Parser;
 
-mod printer;
-
+/// Command-line arguments for the application.
 #[derive(Parser, Debug)]
 #[command(version, about)]
 struct Cli {
@@ -18,6 +17,7 @@ struct Cli {
     file: String,
 }
 
+/// Runs the application.
 fn main() {
     let args = Cli::parse();
 
@@ -26,6 +26,7 @@ fn main() {
     }
 }
 
+/// Prints the contents of a file in hexadecimal.
 pub fn print_as_hexadecimal(filename: String, width: usize) -> io::Result<()> {
     let file = File::open(filename)?;
     let mut bytes = BufReader::new(file).bytes();
