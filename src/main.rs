@@ -27,7 +27,7 @@ fn main() {
 }
 
 /// Prints the contents of a file in hexadecimal.
-pub fn print_as_hexadecimal(filename: String, width: usize) -> io::Result<()> {
+fn print_as_hexadecimal(filename: String, width: usize) -> io::Result<()> {
     let file = File::open(filename)?;
     let mut bytes = BufReader::new(file).bytes();
     let mut buffer = BufWriter::new(io::stdout());
