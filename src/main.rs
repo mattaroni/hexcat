@@ -22,7 +22,7 @@ fn main() {
     let args = Cli::parse();
 
     if let Err(e) = print_as_hexadecimal(args.file, args.width) {
-        eprintln!("\x1b[91;1merror:\x1b[0m {}", e.kind());
+        eprintln!("\x1b[91;1merror:\x1b[0m {}", e);
     }
 }
 
@@ -51,3 +51,11 @@ fn print_as_hexadecimal(filename: String, width: usize) -> io::Result<()> {
 
     buffer.flush()
 }
+
+// fn get_error_message(err: io::Error) -> String {
+//     match &err.kind() {
+//         io::ErrorKind::NotFound => "no such file or directory".to_string(),
+//         io::ErrorKind::Other => err.to_string().to_ascii_lowercase(),
+//         _ => err.kind().to_string(),
+//     }
+// }
