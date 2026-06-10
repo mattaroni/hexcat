@@ -51,11 +51,3 @@ fn print_as_hexadecimal(filename: String, width: usize) -> io::Result<()> {
 
     buffer.flush()
 }
-
-// fn get_error_message(err: io::Error) -> String {
-//     match &err.kind() {
-//         io::ErrorKind::NotFound => "no such file or directory".to_string(),
-//         io::ErrorKind::Other => err.to_string().to_ascii_lowercase(),
-//         _ => err.kind().to_string(),
-//     }
-// }
